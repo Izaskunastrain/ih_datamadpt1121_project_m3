@@ -27,7 +27,7 @@ In order to read the diamonds_train and obtain the diamonds_train.csv that will 
 <p align="center"><img src="./images/DBeaver.png"></p>
 
 
-### :running: **Step 2: **First attempt or keeping things simple
+### :running: Step 2: First attempt or keeping things simple
 
 In order to understand the baseline, I started testing the first most simple estimation possible: 
 - Model: LinearRegression 
@@ -41,7 +41,7 @@ And just like that :tada::
 <p align="center"><img src="./images/first_attempt.png"></p>
 
 
-### :surfer: **Step 3: **Different models - winner RandomForestRegressonr
+### :surfer: Step 3: Different models - winner RandomForestRegressonr
 
 The next thing I did was to test different models and evaluate the impact it had on my error calculated as rmse: 
 
@@ -72,7 +72,7 @@ I decided to move on using the model that reduced to the maximum my error, from 
 
 
 
-### :hammer: **Step 4: **Data cleaning 
+### :bath: Step 4: Data cleaning 
 
 Following the model selection, a common step to take is to analyse the data to remove outliers, values that do not make sense or values that are repeating the same information (very high correlation). 
 
@@ -85,13 +85,43 @@ The steps followed are detailed in notebook  :page_with_curl: 3_Data_cleaning un
 
 
 ```
-The sad truth was that the estimations were worse which made me realise that I was facing an *underfitting model*. 
-Therefore, I decided to move to add new features creating new realationships that might make more robust my estimation model.
+:bulb: The sad truth was that the estimations were worse 
+which made me realise that I was facing an *underfitting model*
+and decided to continue without any cleaning in my dataset. 
         
 ```
+<p align="center"><img src="https://media.istockphoto.com/photos/muddy-golden-retriever-picture-id492264227?k=20&m=492264227&s=612x612&w=0&h=jc8C1jpWKc6jr2uDgb6Q-Q7QKb7G9Dhtvnx1pa1W6VA="></p>
 
 
 
+### :hammer: Step 5: Adding features 
+
+After realising that I was in an underfitting situation with my model, I decided to test different combination of my features and identify if some of those relationships might help my model predict better.  
+
+Here I found a really unexpected surprise!
+
+<p align="center"><img src="./images/feature_creation.png.png"></p>
+
+```
+:bulb: In this step one engineered feature made my error reduce from an average of 1000 to 600
+This feature was Clarity-Color which makes sense that some relationship between both might be relevant.  
+        
+```
+The steps followed are detailed in notebook  :page_with_curl: 4_Adding_features under :open_file_folder:notebook folder.
+
+
+
+### :factory: Step 6: test, test and test! 
+
+What comes next was just a chaotic process trying different possibilities keeping in mind that:
+- I was in an underfitting situation 
+- That cleaning my dataset was not helping
+- Adding new relationship between features was helpful
+- Testing hyperparameters had small impact (range of 10x)
+
+
+
+And that is how the two final models have been chosen :smiley:.
 
 
 
